@@ -1,5 +1,6 @@
 #pragma once
 #include "Song.h"
+using namespace std;
 
 namespace MusicDB
 {
@@ -16,4 +17,5 @@ namespace MusicDB
 	void sortByArtist();
 	bool sort_ascending_by_release_year(Song left, Song right);
 	void sortByReleaseYear();
+	void findSongByTitle(string);
 }
