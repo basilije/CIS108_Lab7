@@ -16,6 +16,9 @@ namespace MusicDB
 	vector<Song> all_songs; // make an vector for storing all songs
 	Song song_to_add;  // make a one-element structure for adding a new song
 	bool there_is_a_new_song;  // define the bool that will know if there is a new song entered
+	vector<Song>::iterator all_songs_itr;  // Initializing an iterator
+	Song the_song;  // Initializing a variable for picking up the current iterator *value
+
 
 	// a function for loading the song database into the array and counting a number of songs
 	void loadTheMusicDatabaseFromFile()
@@ -68,8 +71,7 @@ namespace MusicDB
 	{
 		int song_number = 0;  // define the integer for storing the song's order number
 		string genre_string;  // define the string for genre output
-		vector<Song>::iterator all_songs_itr;  // Initializing an iterator
-		Song the_song;  // Initializing a variable for picking up the current iterator *value
+
 
 		for (all_songs_itr = all_songs.begin(); all_songs_itr<all_songs.end(); all_songs_itr++) // through the loop
 		//for (int song_number_counter = 0; song_number_counter < song_number; song_number_counter++) 
@@ -266,4 +268,22 @@ namespace MusicDB
 		sort(all_songs.begin(), all_songs.end(), sort_ascending_by_release_year);
 	}
 
+	bool compare_strings(char* l, char* r)
+	{
+		return strcmp(l, r) < 0;
+	}
+
+	void findSongByTitle(string search_title_song)
+	{
+		transform(search_title_song.begin(), search_title_song.end(), search_title_song.begin(), ::tolower);
+		all_songs_itr = find_if(all_songs.begin(), all_songs.end(), [search_title_song] (auto s) {return s.song_title == search_title_song; });
+		if (all_songs_itr != all_songs.end())
+		{
+			the_song = *all_songs_itr;  //picking up the current iterator value
+			cout << "The title of the first that maches: " << the_song.song_title << endl << "Artist name: " << the_song.artist_name << endl << "Track number: " << the_song.track_number << endl << "Year released: " << the_song.year_released << endl;
+		}
+		else
+			cout << "Song not found"<< endl;
+
+	}
 }
