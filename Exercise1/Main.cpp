@@ -13,6 +13,7 @@ void printHelp()
 	cout << "list : List the songs in the database " << endl;
 	cout << "save : Save the songs to the database" << endl;
 	cout << "sort : Sort the database " << endl;
+	cout << "find : Find the song by title " << endl;
 	cout << "help : Display a menu explaining the commands to the users " << endl;
 	cout << "exit : Exit the program " << endl << endl;
 }
@@ -65,7 +66,14 @@ int main()
 				MusicDB::sortByArtist();
 			if (command_entered == "y")
 				MusicDB::sortByReleaseYear();
+			command_entered = "";
+		}
 
+		if (command_entered == "find")  // if the command is to find the database
+		{
+			cout << "enter the song title to find >> ";
+			cin >> command_entered;  // get the command
+			MusicDB::findSongByTitle(command_entered);
 		}
 
 		if (command_entered == "help")  // if the command is to print available commands
