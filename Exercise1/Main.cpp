@@ -19,10 +19,8 @@ void printHelp()
 }
 
 
-
 int main()
 {
-	
 	MusicDB::loadTheMusicDatabaseFromFile();  // try to load music database from the file
 	int number_of_songs_in_db = MusicDB::returnTheTotalNumberOfSongs();  // get a total number of songs
 	printHelp();  // print the help
@@ -58,20 +56,19 @@ int main()
 			cout << "t : Sort by song title  " << endl;
 			cout << "a : Sort by artist " << endl;
 			cout << "y : Sort by release year  " << endl;
-			cout << ">> ";  // print the defualt terminal string
+			cout << ">> ";  // print the double default terminal string (wakka-wakka)
 			cin >> command_entered;  // get the command
-			if (command_entered == "t")  
+			if (command_entered == "t")
 				MusicDB::sortByTitle();  // sort by title
-			if (command_entered == "a")  
+			if (command_entered == "a")
 				MusicDB::sortByArtist();  // sort by artist
 			if (command_entered == "y")
 				MusicDB::sortByReleaseYear();   // sort by year
-			command_entered = "";  // for any case
 		}
 
 		if (command_entered == "find")  // if the command is to find the song
 		{
-			cout << "Enter the song title to find >> ";  
+			cout << "Enter the song title to find >> ";
 			cin >> command_entered;  // get the song title
 			MusicDB::findSongByTitle(command_entered);  // find the song
 		}
