@@ -11,11 +11,12 @@ namespace MusicDB
 	void printAllSongsInformations();
 	void addANewSongToTheDatabase();
 	bool isThereANewSong();
-	bool sort_ascending_by_title(Song left, Song right);
+	bool sort_ascending_by_title(Song ,Song );
 	void sortByTitle();
-	bool sort_ascending_by_artist(Song left, Song right);
+	bool sort_ascending_by_artist(Song, Song);
 	void sortByArtist();
-	bool sort_ascending_by_release_year(Song left, Song right);
+	bool sort_ascending_by_release_year(Song, Song);
 	void sortByReleaseYear();
+	string toLower(char*);
 	void findSongByTitle(string);
 }
