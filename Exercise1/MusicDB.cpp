@@ -232,58 +232,66 @@ namespace MusicDB
 	{
 		return there_is_a_new_song;  // return the value of the boolean variable
 	}
-
+	
+	// sort song by title auxiliary function
 	bool sort_ascending_by_title(Song left, Song right)
 	{
 		char* l = left.song_title;
 		char* r = right.song_title;
 		return strcmp(l, r) < 0;
 	}
-
+	
+	// sort song by title function
 	void sortByTitle()
 	{
 		sort(all_songs.begin(), all_songs.end(), sort_ascending_by_title);
 	}
-
-
+	
+	// sort song by artist auxiliary function
 	bool sort_ascending_by_artist(Song left, Song right)
 	{
 		char* l = left.artist_name;
 		char* r = right.artist_name;
 		return strcmp(l, r) < 0;
 	}
-
+	
+	// sort song by artist function
 	void sortByArtist()
 	{
 		sort(all_songs.begin(), all_songs.end(), sort_ascending_by_artist);
 	}
-
+	
+	// sort song by year auxiliary function
 	bool sort_ascending_by_release_year(Song left, Song right)
 	{
 		return (left.year_released < right.year_released);
 	}
-
+	
+	// sort song by year function
 	void sortByReleaseYear()
 	{
 		sort(all_songs.begin(), all_songs.end(), sort_ascending_by_release_year);
 	}
-
+	
+	// sort song by title auxiliary function
 	bool compare_strings(char* l, char* r)
 	{
 		return strcmp(l, r) < 0;
 	}
-
+	
+	// sort song by title function
 	void findSongByTitle(string search_title_song)
 	{
-		transform(search_title_song.begin(), search_title_song.end(), search_title_song.begin(), ::tolower);
+		transform(search_title_song.begin(), search_title_song.end(), search_title_song.begin(), ::tolower); // convert search strign to lowercase
 		all_songs_itr = find_if(all_songs.begin(), all_songs.end(), [search_title_song] (auto s) {return s.song_title == search_title_song; });
+		
 		if (all_songs_itr != all_songs.end())
 		{
 			the_song = *all_songs_itr;  //picking up the current iterator value
-			cout << "The title of the first that maches: " << the_song.song_title << endl << "Artist name: " << the_song.artist_name << endl << "Track number: " << the_song.track_number << endl << "Year released: " << the_song.year_released << endl;
+			cout << "The title of the first that maches: " << the_song.song_title << endl << "Artist name: " << the_song.artist_name << endl << "Track number: " << the_song.track_number << endl << "Year released: " << the_song.year_released << endl; // print the song found
 		}
 		else
-			cout << "Song not found"<< endl;
+			cout << "Song not found"<< endl;  // print that soung is not found
 
 	}
 }
