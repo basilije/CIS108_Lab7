@@ -71,7 +71,7 @@ int main()
 
 		if (command_entered == "find")  // if the command is to find the song
 		{
-			cout << "enter the song title to find >> ";  
+			cout << "Enter the song title to find >> ";  
 			cin >> command_entered;  // get the song title
 			MusicDB::findSongByTitle(command_entered);  // find the song
 		}
