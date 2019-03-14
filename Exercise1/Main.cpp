@@ -60,20 +60,20 @@ int main()
 			cout << "y : Sort by release year  " << endl;
 			cout << ">> ";  // print the defualt terminal string
 			cin >> command_entered;  // get the command
-			if (command_entered == "t")
-				MusicDB::sortByTitle();
-			if (command_entered == "a")
-				MusicDB::sortByArtist();
+			if (command_entered == "t")  
+				MusicDB::sortByTitle();  // sort by title
+			if (command_entered == "a")  
+				MusicDB::sortByArtist();  // sort by artist
 			if (command_entered == "y")
-				MusicDB::sortByReleaseYear();
-			command_entered = "";
+				MusicDB::sortByReleaseYear();   // sort by year
+			command_entered = "";  // for any case
 		}
 
-		if (command_entered == "find")  // if the command is to find the database
+		if (command_entered == "find")  // if the command is to find the song
 		{
-			cout << "enter the song title to find >> ";
-			cin >> command_entered;  // get the command
-			MusicDB::findSongByTitle(command_entered);
+			cout << "enter the song title to find >> ";  
+			cin >> command_entered;  // get the song title
+			MusicDB::findSongByTitle(command_entered);  // find the song
 		}
 
 		if (command_entered == "help")  // if the command is to print available commands
